@@ -1,0 +1,40 @@
+# ─────────────────────────────────────────────────────────────────────────────
+# terraform.tfvars — environment-specific values
+# Copy this file, fill in values, do NOT commit to version control
+# ─────────────────────────────────────────────────────────────────────────────
+
+aws_region   = "ap-southeast-2"
+project_name = "remarcable"
+environment  = "staging"
+
+# Networking
+vpc_cidr             = "10.0.0.0/16"
+availability_zones   = ["ap-southeast-2a", "ap-southeast-2b"]
+public_subnet_cidrs  = ["10.0.1.0/24", "10.0.2.0/24"]
+private_subnet_cidrs = ["10.0.10.0/24", "10.0.11.0/24"]
+
+# ECS images — replace with your ECR image URIs after pushing
+api_image    = "nginx:latest"
+worker_image = "nginx:latest"
+
+# ECS sizing
+api_cpu    = 512
+api_memory = 1024
+worker_cpu    = 1024
+worker_memory = 2048
+
+# Autoscaling
+api_min_capacity    = 2
+api_max_capacity    = 10
+worker_min_capacity = 1
+worker_max_capacity = 20
+
+# RDS
+db_instance_class    = "db.t3.medium"
+db_name              = "appdb"
+db_username          = "appuser"
+db_password          = "CHANGE_ME_USE_SECRETS_MANAGER"
+db_allocated_storage = 20
+
+# Alerting — set your email to receive CloudWatch alarm notifications
+alert_email = "your-email@example.com"

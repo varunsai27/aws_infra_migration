@@ -215,3 +215,11 @@ Highlight concepts such as:
 	Avoiding expensive SaaS monitoring tools until team scale justifies them
 	Using spot capacity to significantly reduce stateless worker compute costs
 	The tone should reflect intentional cost-awareness, phased optimization, and readiness to scale when business or SLA requirements increase."
+
+**Monitoring Thresholds**
+
+Approximate threshold values for CloudWatch alarms were informed by industry-standard baselines and validated against AWS documentation. The following prompt was used to sense-check the values:
+
+"For an ECS Fargate application with SQS-based worker autoscaling and RDS PostgreSQL, suggest reasonable starting CloudWatch alarm thresholds for API CPU, worker CPU, SQS queue depth, oldest message age, RDS connections, RDS free storage, and ALB 5xx error rate."
+
+The suggested values can be reviewed and adjusted based on the specific instance sizes and capacity limits in this architecture.
